@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 
 export default function Blog() {
   const data = useStaticQuery(graphql`
@@ -14,6 +14,9 @@ export default function Blog() {
             }
             html
             excerpt
+            fields {
+              slug
+            }
           }
         }
       }
@@ -30,8 +33,10 @@ export default function Blog() {
           const { title, date } = e.node.frontmatter
           return (
             <li>
-              <h2>{title}</h2>
-              <p>{date}</p>
+              <Link to={`/blog/${e.node.fields.slug}`}>
+                <h2>{title}</h2>
+                <p>{date}</p>
+              </Link>
             </li>
           )
         })}
