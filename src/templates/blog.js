@@ -6,25 +6,21 @@ import { graphql } from "gatsby"
 
 export const query = graphql`
   query($slug: String) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        date
-      }
-      html
+    contentfulBlogPost(slug: { eq: $slug }) {
+      title
+      publishedDate(formatString: "MMMM Do, YYYY")
     }
   }
 `
 
 export default function Blog(props) {
   // this will be exactly the markdown file I was looking for
-  const { markdownRemark } = props.data
+  const { title, publishedDate } = props.data.contentfulBlogPost
   console.log(props.data)
   return (
     <Layout>
-      <h2>{markdownRemark.frontmatter.title}</h2>
-      <p>{markdownRemark.frontmatter.date}</p>
-      <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }}></div>
+      <h2>{title}</h2>
+      <p>{publishedDate}</p>
     </Layout>
   )
 }
