@@ -5,6 +5,8 @@ date: "2020-09-17"
 
 I just learned Gatsby!
 
+![Gatsby](./gatsby.png)
+
 ## Topics Covered
 
 1. Gatsby

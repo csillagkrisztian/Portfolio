@@ -3,12 +3,14 @@ import React from "react"
 import Head from "../components/head"
 import Layout from "../components/layout"
 
-export default function About() {
+export default function NotFound() {
   return (
     <Layout>
-      <Head title="About" />
-      heyu
-      <Link to="/contact">Contact me</Link>
+      <Head title="404 not found" />
+      <h1>Page not found</h1>
+      <p>
+        <Link to="/">Head home</Link>
+      </p>
     </Layout>
   )
 }
