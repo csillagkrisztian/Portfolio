@@ -6,7 +6,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
   const res = await graphql(`
     query {
-      allContentfulBlogPost(sort: { fields: pulbishedDate, order: DESC }) {
+      allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
         edges {
           node {
             slug
